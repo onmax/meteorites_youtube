@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meteoritos en YouTube</title>
+
+    <link rel="stylesheet" href="./main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>¡Pinta los asteroides que veas!</h1>
+
+
+
+    <div class="container">
+        <canvas width="900" height="540"></canvas>
+        <div class="video">
+            <iframe id="ytplayer" type="text/html" width="900" height="540" src="http://www.youtube.com/embed/L0hfNjhmTpc?autoplay=1&rel=0"
+                frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <br>
+    <div class="controls">
+        <button id="seeStar">¡He visto una estrella fugaz!</button>
+        <div class="color"></div>
+
+    </div>
+
+    <script src="./color.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
