@@ -90,3 +90,7 @@ h1 {
     cursor: pointer;
     margin-left: 20px;
 }
+
+.picker_wrapper {
+    z-index: 11;
+}

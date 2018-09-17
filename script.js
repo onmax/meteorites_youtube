@@ -69,7 +69,7 @@ function changeColor(color) {
 
 new Picker({
     parent: document.querySelector('.color'),
-    popup: 'top',
+    popup: 'right',
     color: getComputedStyle(document.body).getPropertyValue('--primary'),
     alpha: false,
     onChange: (c) => changeColor(c)
