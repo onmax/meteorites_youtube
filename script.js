@@ -38,26 +38,58 @@ function endDraw() {
     // In the y axis, we substract 540 minus Y, because Y is in top. 
     // See: https://www.w3schools.com/graphics/canvas_coordinates.asp
     let line = {
-        beginning: {
+        pointA: {
             x: firstX,
             y: 540 - firstY
         },
-        ending: {
+        pointB: {
             x: lastX,
             y: 540 - lastY
         }
     }
-    getDirection(line);
-    console.log(line);
+    var degrees = Math.atan2(line.pointA.y - line.pointB.y, line.pointA.x - line.pointB.x) * 180 * -1 / Math.PI;
+    // d(line)
+    const a = Math.abs(line.pointA.y -  line.pointB.y);
+    const b = Math.abs(line.pointB.x -  line.pointA.x);
+    const hypotenuse =  Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
+    if(hypotenuse < 20){
+        console.log('Linea muy corta');
+    }
+    console.log(degrees);
+    if(Math.abs(degrees) <= 22.5){
+        console.log('Horizontal hacia la izquierda')
+    }else if(degrees > 0 && degrees <= 67.5){
+        console.log('Arriba hacia izquierda')
+    } else if(degrees < 0 && degrees >= -67.5){
+        console.log('Abajo hacia la izquierda')
+    }else if(degrees > 0 && degrees <= 112.5){
+        console.log('Vertical hacia arriba')
+    } else if(degrees < 0 && degrees >= -112.5){
+        console.log('Vertical hacia abajo')
+    }else if(degrees > 0 && degrees <= 157.5){
+        console.log('Arriba hacia derecha')
+    } else if(degrees < 0 && degrees >= -157.5){
+        console.log('Abajo hacia la derecha')
+    }else{
+        console.log('Horizontal hacia la derecha')
+    }
 }
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => endDraw());
 canvas.addEventListener('mouseout', () => endDraw());
 
-function getDirection(line){
-    const slope = (line.beginning.y - line.ending.y) / (line.beginning.x  - line.ending.x);
-    console.log(slope);
+const getSlope = line => (line.pointA.y - line.pointB.y) / (line.pointA.x  - line.pointB.x)
+
+function d(line) {
+    const pointC = {
+        x: line.pointA.x,
+        y: line.pointB.y
+    }
+
+    console.log( (a / hypotenuse));
+    const degrees = Math.asin(a / hypotenuse);
+    console.log(degrees);
 }
 
 function handleButton() {
@@ -71,7 +103,7 @@ seeStar.addEventListener('click', handleButton)
 function changeColor(color) {
     let newColor = color.rgba.toString();
     var html = document.querySelector(':root');
-    html.style.cssText = `--primary: rgba(${newColor})`;    
+    html.style.cssText = `--primary: rgba(${newColor})`;
     ctx.strokeStyle = color.hex.substring(0, 7);
 }
 
