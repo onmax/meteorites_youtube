@@ -53,7 +53,8 @@ function endDraw() {
     const b = Math.abs(line.pointB.x -  line.pointA.x);
     const hypotenuse =  Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
     if(hypotenuse < 20){
-        console.log('Linea muy corta');
+        console.log(`Linea muy corta: ${hypotenuse}`);
+        return;
     }
     console.log(degrees);
     if(Math.abs(degrees) <= 22.5){
