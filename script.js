@@ -71,8 +71,8 @@ seeStar.addEventListener('click', handleButton)
 function changeColor(color) {
     let newColor = color.rgba.toString();
     var html = document.querySelector(':root');
-    html.style.cssText = `--primary: rgba(${newColor})`;
-    ctx.strokeStyle = '#' + color.hex.substring(1, 7);
+    html.style.cssText = `--primary: rgba(${newColor})`;    
+    ctx.strokeStyle = color.hex.substring(0, 7);
 }
 
 new Picker({
