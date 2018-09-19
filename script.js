@@ -6,10 +6,10 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 10;
 
+
 // ctx.globalCompositeOperation = 'multiply';
 let isDrawing = false;
 let firstX, lastX = 0;
-let firstY, lastY = 0;
 let direction = true;
 
 function draw(e) {
@@ -34,16 +34,20 @@ function endDraw() {
         return;
     }
     isDrawing = false;
+
+    // In the y axis, we substract 540 minus Y, because Y is in top. 
+    // See: https://www.w3schools.com/graphics/canvas_coordinates.asp
     let line = {
         beginning: {
             x: firstX,
-            y: firstY
+            y: 540 - firstY
         },
         ending: {
             x: lastX,
-            y: lastY
+            y: 540 - lastY
         }
     }
+    getDirection(line);
     console.log(line);
 }
 
@@ -51,6 +55,10 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => endDraw());
 canvas.addEventListener('mouseout', () => endDraw());
 
+function getDirection(line){
+    const slope = (line.beginning.y - line.ending.y) / (line.beginning.x  - line.ending.x);
+    console.log(slope);
+}
 
 function handleButton() {
     document.querySelector('.container canvas').classList.toggle('hide');
