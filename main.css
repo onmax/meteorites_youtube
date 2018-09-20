@@ -65,6 +65,7 @@ h1 {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .controls button {
@@ -93,4 +94,19 @@ h1 {
 
 .picker_wrapper {
     z-index: 11;
+}
+.arrow{
+    display: none;
+    margin-left: 20px;
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    justify-content:center;
+    align-items: center;
+}
+.arrow img{
+    max-width: 50px;
+    max-height: 50px;
+    transition: .3s all ease;
 }

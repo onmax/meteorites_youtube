@@ -47,59 +47,68 @@ function endDraw() {
             y: 540 - lastY
         }
     }
-    var degrees = Math.atan2(line.pointA.y - line.pointB.y, line.pointA.x - line.pointB.x) * 180 * -1 / Math.PI;
-    // d(line)
+    let degrees = Math.atan2(line.pointA.y - line.pointB.y, line.pointA.x - line.pointB.x) * 180 / Math.PI;
+
     const a = Math.abs(line.pointA.y -  line.pointB.y);
     const b = Math.abs(line.pointB.x -  line.pointA.x);
     const hypotenuse =  Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
     if(hypotenuse < 20){
+        // Clean canvas
+        ctx.clearRect(0,0,canvas.width,canvas.height);
         console.log(`Linea muy corta: ${hypotenuse}`);
         return;
     }
-    console.log(degrees);
+    let rotate = 0;
     if(Math.abs(degrees) <= 22.5){
+        rotate = 180;
         console.log('Horizontal hacia la izquierda')
     }else if(degrees > 0 && degrees <= 67.5){
+        rotate = 135;
         console.log('Arriba hacia izquierda')
     } else if(degrees < 0 && degrees >= -67.5){
+        rotate = -135;
         console.log('Abajo hacia la izquierda')
     }else if(degrees > 0 && degrees <= 112.5){
-        console.log('Vertical hacia arriba')
-    } else if(degrees < 0 && degrees >= -112.5){
+        rotate = 90;
         console.log('Vertical hacia abajo')
+    } else if(degrees < 0 && degrees >= -112.5){
+        rotate = -90;
+        console.log('Vertical hacia arriba')
     }else if(degrees > 0 && degrees <= 157.5){
+        rotate = 45;
         console.log('Arriba hacia derecha')
     } else if(degrees < 0 && degrees >= -157.5){
+        rotate = -45;
         console.log('Abajo hacia la derecha')
     }else{
+        rotate = 0;
         console.log('Horizontal hacia la derecha')
     }
+    degrees = degrees + 180
+    // Clean canvas
     ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Draw a straight line
     ctx.beginPath();
-    // start from
 
     ctx.moveTo(line.pointA.x, 540 - line.pointA.y);
-    // go to
     ctx.lineTo(line.pointB.x, 540 - line.pointB.y);
+
     ctx.stroke();
+    // End draw of a straight line
+
+    const arrow = document.querySelector('.arrow')
+    arrow.querySelector('img').style.transform = `rotate(${rotate}deg)`
+    arrow.style.display = 'flex'
 }
+
+
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => endDraw());
 canvas.addEventListener('mouseout', () => endDraw());
 
 const getSlope = line => (line.pointA.y - line.pointB.y) / (line.pointA.x  - line.pointB.x)
-
-function d(line) {
-    const pointC = {
-        x: line.pointA.x,
-        y: line.pointB.y
-    }
-
-    console.log( (a / hypotenuse));
-    const degrees = Math.asin(a / hypotenuse);
-    console.log(degrees);
-}
 
 function handleButton() {
     document.querySelector('.container canvas').classList.toggle('hide');
