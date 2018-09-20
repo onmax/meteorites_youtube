@@ -74,6 +74,14 @@ function endDraw() {
     }else{
         console.log('Horizontal hacia la derecha')
     }
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.beginPath();
+    // start from
+
+    ctx.moveTo(line.pointA.x, 540 - line.pointA.y);
+    // go to
+    ctx.lineTo(line.pointB.x, 540 - line.pointB.y);
+    ctx.stroke();
 }
 
 canvas.addEventListener('mousemove', draw);
