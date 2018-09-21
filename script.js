@@ -140,6 +140,7 @@ function changeColor(color) {
     var html = document.querySelector(':root');
     html.style.cssText = `--primary: rgba(${newColor})`;
     ctx.strokeStyle = color.hex.substring(0, 7);
+    canvasArrow()
 }
 
 new Picker({
