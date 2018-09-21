@@ -30,11 +30,13 @@
     <div class="controls">
         <button id="seeStar">¡He visto una estrella fugaz!</button>
         <div class="color"></div>
+        <input type="range" min="1" max="16" value="4" oninput="changeWidth()" id="range">
         <div class="arrow">
             <img src="./arrow.png" alt="">
         </div>
     </div>
 
+    <p id="message"></p>
 
     <script src="./color.js"></script>
     <script src="./script.js"></script>
