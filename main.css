@@ -4,6 +4,7 @@
     --bck-3: #081525;
     --bck-4: #0E1E2E;
     --bck-5: #202D3F;
+    --bck-6: #f2f2f2;
     --font-color: #FFA650;
     --primary: #961b15;
 }
@@ -24,95 +25,176 @@ h1 {
     padding: 20px 0;
 }
 
-.container {
+.app {
     width: 100vw;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+}
+
+.app .video-wrapper {
     position: relative;
 }
 
-.container .video {
+.app .video-wrapper canvas {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-}
-
-
-.container iframe,
-.container canvas {
-    margin: 0 auto;
-}
-
-
-.container canvas {
     background: rgba(255, 255, 255, .2);
-    z-index: 10;
-    transition: .2s all ease;
-    opacity: 0;
-    visibility: hidden;
+    z-index: inherit;
 }
 
-.container canvas.hide {
-    opacity: 1;
-    visibility: inherit;
+.app .video-wrapper canvas.hide {
+    z-index: -1;
 }
 
-.controls {
-    width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
+.app-controls {
+    width: 270px;
 }
 
-.controls button {
-    background: #fff;
-    color: var(--bck-5);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 3px;
-    box-shadow: none;
-    border: 3px solid var(--bck-5);
-    border-radius: 4px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.controls .color {
-    width: 20px;
-    height: 20px;
-    background: var(--primary);
-    border-radius: 50%;
-    border: 1px solid white;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.picker_wrapper {
-    z-index: 11;
-}
-
-.arrow {
+.app-controls>div {
     display: none;
-    margin-left: 20px;
-    background: #fff;
+}
+
+.app-controls .see-one {
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    background: var(--bck-6);
+    padding: 40px;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.app-controls .see-one img {
+    height: 100px;
+
+}
+
+.app-controls .draw {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.app-controls .draw .cancel,
+.app-controls .edit-arrow .back,
+.app-controls .edit-arrow .ok {
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.app-controls .draw .cancel {
+    background: #b22929;
+}
+
+.app-controls .edit-arrow .ok {
+    background: #208c4b;
+}
+
+.app-controls .edit-arrow .back {
+    background: var(--bck-6);
+    color: var(--bck-2);
+
+}
+
+
+.app-controls .draw .frame-controls {
+    display: flex;
+    justify-content: space-around;
+}
+
+.app-controls .draw .frame-controls>div {
+    width: 70px;
+    height: 70px;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.arrow img {
-    max-width: 50px;
-    max-height: 50px;
-    transition: .3s all ease;
+.app-controls .draw .frame-controls .go-back img {
+    margin-right: 10px;
 }
 
+.app-controls .draw .frame-controls .go-forward img {
+    margin-left: 10px;
+}
+
+.app-controls .draw .frame-controls img {
+    width: 40px;
+    height: 40px;
+}
+
+.frame-msg {
+    color: var(--bck-6);
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 17px;
+    height: 17px;
+}
+
+.message {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: var(--bck-6);
+    padding: 40px;
+    text-align: center;
+    margin: 0;
+    color: var(--bck-2);
+    font-size: 20px;
+}
+
+.message.error {
+    background: #b22929;
+    color: var(--bck-6);
+}
+
+.edit-arrow .inputs {
+    color: var(--bck-6);
+    margin: 20px 0;
+}
+
+.edit-arrow h4 {
+    font-size: 17px;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.edit-arrow input {
+    margin-left: 10px;
+}
+
+.edit-arrow input[type="color"] {
+    height: 35px;
+    width: 35px;
+    border: 0;
+}
+
+
+.edit-arrow input[type="color"i] {
+    padding: 5px;
+    border-radius: 50%;
+    background: transparent;
+
+}
 
 input[type=range] {
     -webkit-appearance: none;
