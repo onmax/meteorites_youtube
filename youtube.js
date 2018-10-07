@@ -41,6 +41,6 @@ function nextFrame() {
 }
 
 function prevFrame() {
-    writeFrameMsg('Has retrocido')
+    writeFrameMsg('Has retrocedido')
     player.seekTo(player.getCurrentTime() - 1 / FPS)
 }
