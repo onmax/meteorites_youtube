@@ -150,16 +150,15 @@ h1 {
 }
 
 .message {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
+    width: calc(95% - 40px);
+    border-radius: 5px;
     background: var(--bck-6);
-    padding: 40px;
-    text-align: center;
+    padding: 20px;
+    text-align: justify;
     margin: 0;
+    margin-bottom: 15px;
     color: var(--bck-2);
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .message.error {
