@@ -8,3 +8,5 @@ let points = {
 
 initCanvas()
 initAppState();
+
+moreInfo()
