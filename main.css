@@ -309,3 +309,16 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .modal-header h6 {
     font-size: 14px;
 }
+
+.video-info nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    font-size: 15px;
+}
+
+.video-info nav ul .title {
+    font-weight: bold;
+}
