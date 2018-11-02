@@ -31,6 +31,5 @@ let points = {
 initCanvas()
 initAppState();
 
-setMoreInfo();
 
 moreInfo()

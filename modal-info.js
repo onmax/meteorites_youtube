@@ -5,6 +5,7 @@ function moreInfo() {
     const moreInfo = document.getElementById('moreInfo');
     overlay.addEventListener('click', hideModal);
     moreInfo.addEventListener('click', showModal);
+    setMoreInfo();
 }
 
 function showModal() {
